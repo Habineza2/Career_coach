@@ -1,0 +1,166 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Custom Admin Dashboard{% endblock %}
+
+{% block extrastyle %}
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f9fc;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header Styles */
+    .admin-header {
+        background-color: #003366; /* Dark blue */
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .admin-header h1 {
+        margin: 0;
+        font-size: 32px;
+    }
+
+    /* Main Content Area */
+    .admin-content {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Admin Modules */
+    .admin-module {
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    .admin-module:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .admin-module h2 {
+        font-size: 26px;
+        color: #003366; /* Dark blue */
+        border-bottom: 2px solid #007bff; /* Blue */
+        padding-bottom: 10px;
+    }
+
+    /* Styles for Admin Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th {
+        background-color: #007bff; /* Blue */
+        color: #ffffff;
+        padding: 12px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 12px;
+        border: 1px solid #dddddd;
+        transition: background-color 0.2s;
+    }
+
+    td:hover {
+        background-color: #f1f1f1; /* Light gray on hover */
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9; /* Slightly darker for readability */
+    }
+
+    /* Button Styles */
+    .button {
+        background-color: #007bff; /* Blue */
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        font-weight: bold;
+    }
+
+    .button:hover {
+        background-color: #0056b3; /* Darker blue */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .admin-content {
+            flex-direction: column;
+        }
+    }
+
+    /* Custom Footer */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #003366; /* Dark blue */
+        color: #ffffff;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h1>Welcome to the Career Coach Admin Panel</h1>
+</div>
+<div class="admin-content">
+    <div class="admin-module">
+        <h2>User Profiles</h2>
+        {% block user_profiles %}
+        {{ block.super }}
+        {% endblock %}
+    </div>
+    <div class="admin-module">
+        <h2>Jobs</h2>
+        {% block jobs %}
+        {{ block.super }}
+        {% endblock %}
+    </div>
+    <div class="admin-module">
+        <h2>Job Applications</h2>
+        {% block job_applications %}
+        {{ block.super }}
+        {% endblock %}
+    </div>
+    <div class="admin-module">
+        <h2>Notifications</h2>
+        {% block notifications %}
+        {{ block.super %}
+        {% endblock %}
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Career Coach. All rights reserved.</p>
+</div>
+{% endblock %}
+
+{% block footer %}
+<!-- Remove the default Django documentation link -->
+{% endblock %}

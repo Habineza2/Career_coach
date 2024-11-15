@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+            
+        }
+        
+        .header {
+            
+            font-family:bold;
+            font-size:30px; 
+            background-color:white;
+            
+            
+        }
+        .header ul{
+            display:flex;
+            flex-direction: row;
+            justify-content:right;
+            list-style: none;
+            gap:30px;
+            margin-right:50px;
+
+        }
+        .img1{
+            height:35px;
+            
+        }
+        .welcome{
+            text-align:center;
+            font-size:30px;
+            font-family: 'Cinzel', serif;
+            color: #006400;
+        }
+        .logo{
+            height:70px;
+            
+           
+        }
+        .logo1{
+            
+            margin-top:40px;
+            font-size:14px;
+            font-family: "Times New Roman", serif;
+            font-style: italic;
+            text-shadow: 1px 1px 2px #888888;
+            margin-right:800px;
+
+
+        }
+        .home_container{
+            display:flex;
+            width:1280px;
+            flex-direction:row;
+            
+        }
+        .home{
+            height:18px;
+        }
+       .home_container ul{
+        list-style:none;
+        
+
+       }
+        
+       .home_container ul li{
+        text-decoration:none;
+        
+        word-spacing: 5px;
+        margin-top:10px;
+        
+       }
+       .home_container ul a{
+        text-decoration:none;
+        font-size:15px;
+        color:#034001;
+        font-family:Arial sans serif;
+        
+       }
+       
+
+       .component{
+        background-color:white;
+        width:300px;
+       }
+       .text1{
+        background-color:rgba(0,0,0,0.1);
+        width:250px;
+        margin-left:60px;
+        height:130px;
+        margin-top:50px;
+        text-align:center;
+       }
+       .home_container a{
+        text-decoration: none;
+        font-size: 20px;
+        color:rgba(0,0,0,0.8);
+       }
+       .home_container a:hover{
+        color:#034001;
+       }
+
+
+       
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto; 
+            position: relative;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        
+        @media (max-width: 768px) {
+            .home_container {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .img1{
+                
+            
+                
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+
+            }
+
+            .icon {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    
+    <nav class="header">
+    <ul><li><img src="https://www.iconpacks.net/icons/5/free-icon-green-star-15590.png" alt="Home" class="logo" ></img></li>
+        <li class="logo1">Career coach</li> 
+        <a href="#"><li><img src="https://static.vecteezy.com/system/resources/previews/006/086/198/original/notification-icon-for-web-vector.jpg" class="img1"></img></li></a>
+        <a href="#"><li><img src="https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg" class="img1"/></li></a>
+        <a href={% url 'home' %}><li><img src="https://static.vecteezy.com/system/resources/previews/000/365/555/original/logout-vector-icon.jpg" class="img1"/></li></a>
+    </ul>
+    </nav>
+    
+   <p class="welcome">Welcome {{ user_profile.name }}!</p>
+
+
+   <div class="home_container">
+     <div class="component">    
+     <ul>   
+        <a href="#"><li><img src="https://static.vecteezy.com/system/resources/previews/000/420/851/original/vector-home-icon.jpg" class="home"></img> Home</li></a>
+        <a href="#"><li><img src="https://tse3.mm.bing.net/th?id=OIP.W_soq1M2d4M9I8ZSgTN4MAHaHa&pid=Api&P=0&h=220" class="home"/>My work</li></a>
+        <a href="#"><li><img src="https://img2.thaipng.com/20200527/pye/transparent-job-icon-recruitment-icon-business-recruitment-ico-5eceb96a49df74.3954655815906061863026.jpg" class="home"/> Jobs</li></a>
+        <a href="#"><li><img src="https://tse1.mm.bing.net/th?id=OIP.xoa8Zlw3h6E0iLt4NPs55gHaHa&pid=Api&P=0&h=220" class="home"/>Career help</li></a>
+        <a href="#"><li><img src="https://static.vecteezy.com/system/resources/previews/000/500/091/original/vector-wallet-icon-design.jpg" class="home"/>Wallet</li></a>
+        <a href="#"><li><img src="https://tse4.mm.bing.net/th?id=OIP.jLDFmxNTwxza2LPn595AqwHaHa&pid=Api&P=0&h=220" class="home"/>Refer and earn</li></a>
+   
+    </ul>
+    </div>
+    
+    <a href="#"><div class="text1">Give and get career
+        help</div></a>
+        <a href="#"><div class="text1">Explore job</div></a>
+            <a href="#"><div class="text1">Earn coin</div></a>
+    
+   </div>
+   
+           
+    <div>    
+    <footer>
+        <p>&copy; 2024 Career coach. All rights reserved.</p>
+        <p><a href="#" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: white; text-decoration: underline;">Terms of Service</a></p>
+    </footer>
+    <div>
+</body>
+</html>

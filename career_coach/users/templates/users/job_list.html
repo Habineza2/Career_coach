@@ -1,0 +1,45 @@
+<!-- job_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Job List</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Posted Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ job.title }}</td>
+                    <td>{{ job.description|truncatewords:20 }}</td>
+                    <td>{{ job.location }}</td>
+                    <td>${{ job.salary }}</td>
+                    <td>{{ job.posted_date }}</td>
+                    <td>{{ job.is_active|yesno:"Active,Inactive" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No jobs available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'post_job' %}" class="btn btn-primary">Add New Job</a>
+    </div>
+</body>
+</html>

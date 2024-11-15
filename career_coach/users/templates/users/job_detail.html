@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ job.title }} - Job Details</title>
+</head>
+<body>
+    <h1>{{ job.title }}</h1>
+    <p>{{ job.description }}</p>
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <p><strong>Salary:</strong> ${{ job.salary }}</p>
+    <p>Posted on: {{ job.posted_date }}</p>
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+</body>
+</html>
